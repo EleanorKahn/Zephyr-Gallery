@@ -8,25 +8,28 @@ import ImageSearch from './components/ImageSearch';
 function App() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [term, setTerm] = useState("flowers");
+  const [term, setTerm] = useState("roses");
 
   useEffect(() => {
     fetch(`https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${term}&image_type=photo&pretty=true`)
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         setImages(data.hits);
         setIsLoading(false);
       })
       .catch(err => console.log(err))
-  }, []);
+  }, [term]);
 
   return (
     <div className='container mx-auto'>
-      <ImageSearch />
+      <h1 className="max-w-sm text-center mx-auto mt-10 text-2xl text-purple-500 font-bold">Zephyr Gallery</h1>
+      <h2 className="max-w-sm text-center mx-auto text-purple-500 opacity-60">Explore where the wind takes you...</h2>
+      <ImageSearch searchText={(text) => setTerm(text)}/>
+      {!isLoading && images.length === 0 && <h1 className='text-4xl text-center mx-auto mt-32'>No Images Found</h1> }
       {isLoading 
         ? <h1 className='text-6xl text-center mx-auto mt-32'>Loading...</h1> 
         : <div className='grid grid-cols-3 gap-4'>
-            {images.map(image => {
+            {images.map((image) => {
               return <ImageCard key={image.id} image={image} />
             })}
           </div>
