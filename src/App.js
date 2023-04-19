@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import * as dotenv from "dotenv";
-// dotenv.config();
 import ImageCard from './components/ImageCard';
 import ImageSearch from './components/ImageSearch';
 
