@@ -8,12 +8,15 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [term, setTerm] = useState("roses");
 
+  const URL = `/.netlify/functions/pixiFetch?q=${term}`;
+
   useEffect(() => {
-    fetch(`https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${term}&image_type=photo&pretty=true`)
+    fetch(URL)
       .then((res) => res.json())
       .then((data) => {
         setImages(data.hits);
         setIsLoading(false);
+        return data;
       })
       .catch(err => console.log(err))
   }, [term]);
