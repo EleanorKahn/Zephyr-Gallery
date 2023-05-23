@@ -4,7 +4,7 @@ import ImageSearch from './components/ImageSearch';
 
 
 function App() {
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [term, setTerm] = useState("roses");
   //handling errors in the UI, and/or displaying errors in the UI?
