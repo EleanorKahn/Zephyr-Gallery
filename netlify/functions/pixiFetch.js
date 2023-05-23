@@ -7,7 +7,8 @@ exports.handler = async function (event, context) {
    const { term } = event.queryStringParameters;
       console.log(term);
       const response = await fetch(`https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${term}&image_type=photo&pretty=true`);
-      const images = response.data.hits;
+      const data = await response.json();
+      const images = data.hits;
       console.log(response);
       console.log(images);
       return {

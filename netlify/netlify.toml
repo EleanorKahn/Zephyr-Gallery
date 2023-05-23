@@ -1,2 +1,6 @@
 [build]
-    functions = "functions"
+    base = "../src"
+
+[functions] 
+
+    directory = "./functions"
