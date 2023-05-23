@@ -8,19 +8,23 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [term, setTerm] = useState("roses");
 
-  const URL = `/.netlify/functions/pixiFetch?q=${term}`;
-
   useEffect(() => {
-    fetch(URL)
-      .then((res) => res.json())
-      .then((data) => {
-        setImages(data.hits);
+    async function fetchPixi() {
+      const URL = `/.netlify/functions/pixiFetch?q=${term}`;
+      try {
+        const response = await fetch(URL);
+        const data = await response.json();
+        console.log(response);
+        console.log(images);
         setIsLoading(false);
+        setImages(data.hits);
         return data;
-      })
-      .catch(err => console.log(err))
-  }, [term]);
-
+      } catch (err) {
+        console.log(err);
+      }}
+      fetchPixi();
+}, [term]);
+  
   return (
     <div className='container mx-auto'>
       <h1 className="max-w-sm text-center mx-auto mt-10 text-2xl text-purple-500 font-bold">Zephyr Gallery</h1>
