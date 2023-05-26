@@ -514,6 +514,9 @@ video {
 .mt-32 {
   margin-top: 8rem;
 }
+.block {
+  display: block;
+}
 .inline-block {
   display: inline-block;
 }
