@@ -14,7 +14,7 @@ const ImageSearch = ({ searchText }) => {
                 className="w-full max-w-sm"
                 onSubmit={onSubmit}
             >
-                <div className="flex items-center border-b border-b-2 border-teal-400 py-2">
+                <div className="flex items-center border-b-2 border-teal-400 py-2">
                     <input 
                         onChange={(e) => setText(e.target.value)}
                         className="appearance-none bg-transparents border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" 

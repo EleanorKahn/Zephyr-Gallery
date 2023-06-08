@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     async function fetchPixi() {
-      const URL = `/.netlify/functions/pixiFetch?q=${term}`;
+      const URL = `/netlify/functions/pixiFetch?q=${term}`;
       try {
         setIsLoading(true);
         const response = await fetch(URL);
