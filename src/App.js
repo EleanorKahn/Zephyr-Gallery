@@ -11,8 +11,7 @@ function App() {
 
   useEffect(() => {
     async function fetchPixi() {
-      // const URL = `/.netlify/functions/pixiFetch?q=${term}`;
-      const URL = `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${term}&image_type=photo&pretty=true`
+      const URL = `/.netlify/functions/pixiFetch?q=${term}`;
       try {
         setIsLoading(true);
         const response = await fetch(URL);
