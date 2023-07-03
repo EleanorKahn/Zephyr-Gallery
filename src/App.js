@@ -5,13 +5,13 @@ import ImageSearch from './components/ImageSearch';
 function App() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [term, setTerm] = useState("roses");
+  const [term, setTerm] = useState("tree");
   //handling errors in the UI, and/or displaying errors in the UI?
   const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchPixi() {
-      const URL = `/netlify/functions/pixiFetch?q=${term}`;
+      const URL = `/.netlify/functions/pixiFetch?q=${term}`;
       try {
         setIsLoading(true);
         const response = await fetch(URL);
@@ -44,7 +44,7 @@ function App() {
       {isLoading 
         ? <h1 className='text-6xl text-center mx-auto mt-32'>Loading...</h1> 
         : <div className='grid grid-cols-3 gap-4'>
-            {images.map((image) => {
+            {images?.map((image) => {
               return <ImageCard key={image.id} image={image} />
             })}
           </div>
