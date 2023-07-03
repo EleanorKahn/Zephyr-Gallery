@@ -1,3 +1,5 @@
+//mockback the shape of your data, and have your lambda function return the mocked up data
+
 console.log("I am in the pixifetch file, but not the function!");
 
 require("dotenv").config();

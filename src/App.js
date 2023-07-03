@@ -5,20 +5,21 @@ import ImageSearch from './components/ImageSearch';
 function App() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [term, setTerm] = useState("tree");
+  const [term, setTerm] = useState("plant");
   //handling errors in the UI, and/or displaying errors in the UI?
   const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchPixi() {
-      const URL = `/.netlify/functions/pixiFetch?q=${term}`;
+      // const URL = `/.netlify/functions/pixiFetch?q=${term}`;
+      const URL = `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${term}&image_type=photo&pretty=true`
       try {
         setIsLoading(true);
         const response = await fetch(URL);
         const data = await response.json();
         setIsLoading(false);
         setImages(data.hits);
-        return data;
+        //return data;
       } catch (err) {
         console.log(err);
         setError("An error occured while fetching the data.");
@@ -47,6 +48,7 @@ function App() {
             {images?.map((image) => {
               return <ImageCard key={image.id} image={image} />
             })}
+            {console.log(images)}
           </div>
       }
     </div>
