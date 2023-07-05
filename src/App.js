@@ -10,15 +10,16 @@ function App() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    async function fetchPixi() {
-      const URL = `/.netlify/functions/pixiFetch?q=${term}`;
+    async function fetchPixa() {
+      const URL = `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${term}&image_type=photo&pretty=true`;
+      //`/.netlify/functions/pixiFetch?q=${term}`;
       try {
         setIsLoading(true);
         const response = await fetch(URL);
         const data = await response.json();
         setIsLoading(false);
         setImages(data.hits);
-        //return data;
+        console.log(data);
       } catch (err) {
         console.log(err);
         setError("An error occured while fetching the data.");
@@ -26,7 +27,7 @@ function App() {
         console.log('I am in the finally block');
       }
     }
-    fetchPixi();
+    fetchPixa();
   }, [term]);
 
   
