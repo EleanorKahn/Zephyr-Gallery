@@ -2,6 +2,6 @@
     base = "../src"
     command = "npm run build"
     functions = "netlify/functions"
-    publish = "dist"
+    publish = "build"
 [functions] 
     directory = "netlify/functions"
