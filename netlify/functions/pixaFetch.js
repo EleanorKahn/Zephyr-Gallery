@@ -8,7 +8,7 @@ const axios = require("axios");
 exports.handler = async function (event, context) {
   console.log(event);
   console.log(context);
-  //  console.log(event.queryStringParameters);
+  console.log(event.queryStringParameters);
   console.log("I am in pixafetch, but before the api call");
    const {term} = event.queryStringParameters;
    console.log(term);
