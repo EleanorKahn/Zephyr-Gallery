@@ -3,3 +3,4 @@
     command = "npm run build"
     functions = "netlify/functions"
     publish = "build"
+
