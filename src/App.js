@@ -5,14 +5,14 @@ import ImageSearch from './components/ImageSearch';
 function App() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [term, setTerm] = useState("plant");
+  const [term, setTerm] = useState("yellow flowers");
   //handling errors in the UI, and/or displaying errors in the UI?
   const [error, setError] = useState(null);
 
+
   useEffect(() => {
     async function fetchPixa() {
-      const URL = `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${term}&image_type=photo&pretty=true`;
-      //`/.netlify/functions/pixiFetch?q=${term}`;
+      const URL = `../.netlify/functions/pixaFetch?q=${term}`;
       try {
         setIsLoading(true);
         const response = await fetch(URL);
@@ -29,6 +29,10 @@ function App() {
     }
     fetchPixa();
   }, [term]);
+
+ 
+
+ 
 
   
 
