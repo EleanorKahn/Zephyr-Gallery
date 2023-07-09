@@ -8,7 +8,7 @@ console.log("I am in the pixafetch file, but not the function!");
 exports.handler = function (event, context) {
   console.log(event);
   console.log(context);
-  //  console.log(event.queryStringParameters);
+  console.log(event.queryStringParameters);
   console.log("I am in pixafetch, but before the api call");
   return {
     statusCode: 200,

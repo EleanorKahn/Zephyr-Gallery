@@ -5,14 +5,14 @@ import ImageSearch from './components/ImageSearch';
 function App() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [term, setTerm] = useState("yellow flowers");
+  const [term, setTerm] = useState("spring");
   //handling errors in the UI, and/or displaying errors in the UI?
   const [error, setError] = useState(null);
 
 
   useEffect(() => {
     async function fetchPixa() {
-      const URL = `../.netlify/functions/pixaFetch?q=${term}`;
+      const URL = `/.netlify/functions/pixaFetch?q=${term}`;
       try {
         setIsLoading(true);
         const response = await fetch(URL);
