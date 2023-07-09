@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     async function fetchPixa() {
-      const URL = `../netlify/functions/pixaFetch?q=${term}`;
+      const URL = `./.netlify/functions/pixaFetch?q=${term}`;
       try {
         setIsLoading(true);
         const response = await fetch(URL);
