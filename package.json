@@ -16,6 +16,7 @@
   },
   "scripts": {
     "start": "npm run watch:css && react-scripts start",
+    "json-server": "json-server --watch json-server/db.json --port 5000",
     "build": "npm run build:css && react-scripts build",
     "debug": "netlify dev:exec",
     "test": "react-scripts test",
