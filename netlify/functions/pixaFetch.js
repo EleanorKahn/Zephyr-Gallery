@@ -20,7 +20,7 @@ exports.handler = async function (event, context) {
     const { term } = event.queryStringParameters;
       console.log(term);
       const response = await axios.get(
-        '/db/mockData.json',
+        'http://localhost:5000/hits',
         {
           headers: { Accept: "application/json", "Accept-Encoding": "identity" },
           params: { trophies: true },
@@ -28,7 +28,7 @@ exports.handler = async function (event, context) {
       );
 
       const data = await response.json();
-      const images = await data.hits;
+      const images = data;
       console.log(response);
       console.log(images);
       return {
