@@ -16,6 +16,7 @@ exports.handler = async function (event, context) {
    //const URL = `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${term}&image_type=photo&pretty=true`;
    //
 
+
    try {
     const { term } = event.queryStringParameters;
       console.log(term);
@@ -28,9 +29,12 @@ exports.handler = async function (event, context) {
       );
 
       const data = await response.json();
-      const images = data;
+      const images = data.hits;
+
+      //both the below are being logged as 'undefined'
       console.log(response);
       console.log(images);
+
       return {
         statusCode: 200,
         headers: {
