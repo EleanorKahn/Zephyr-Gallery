@@ -9,10 +9,11 @@ exports.handler = async function (event, context) {
     console.log(context);
     console.log(event.queryStringParameters);
     console.log("I am in pixafetch, but before the api call");
-   const {term} = event.queryStringParameters;
-   console.log(term);
+    const {term} = event.queryStringParameters;
+    console.log(term);
 
    //const URL = `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${term}&image_type=photo&pretty=true`;
+   //
 
    try {
     const { term } = event.queryStringParameters;
@@ -23,7 +24,6 @@ exports.handler = async function (event, context) {
           headers: { Accept: "application/json", "Accept-Encoding": "identity" },
           params: { trophies: true },
         },
-
       );
 
       const data = await response.json();

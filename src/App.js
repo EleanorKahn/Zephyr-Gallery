@@ -10,6 +10,7 @@ function App() {
   const [error, setError] = useState(null);
 
 
+ // get it to hit a small local server that I build 
   useEffect(() => {
     async function fetchPixa() {
       const URL = `/.netlify/functions/pixaFetch?q=${term}`;
@@ -18,11 +19,11 @@ function App() {
         const response = await fetch(URL);
         const data = await response.json();
         setIsLoading(false);
-        setImages(data.hits);
+        setImages(data);
         console.log(data);
       } catch (err) {
         console.log(err);
-        setError("An error occured while fetching the data.");
+        setError(`An error occured while fetching the data: ${err}`);
       } finally {
         console.log('I am in the finally block');
       }
