@@ -17,7 +17,7 @@ function App() {
       try {
         setIsLoading(true);
         const response = await fetch(URL);
-        const data = await response.json();
+        const data = response;
         setIsLoading(false);
         setImages(data);
         console.log(data);

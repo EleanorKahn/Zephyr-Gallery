@@ -21,14 +21,15 @@ exports.handler = async function (event, context) {
     const { term } = event.queryStringParameters;
       console.log(term);
       const response = await axios.get(
-        'http://localhost:5000/hits',
+        '/db/mockData.json',
         {
           headers: { Accept: "application/json", "Accept-Encoding": "identity" },
           params: { trophies: true },
         },
       );
 
-      const data = await response.json();
+      //shape of the data!! 
+      const data = response.data;
       const images = data.hits;
 
       //both the below are being logged as 'undefined'
