@@ -5,7 +5,7 @@ import ImageSearch from './components/ImageSearch';
 function App() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [term, setTerm] = useState("winter");
+  const [term, setTerm] = useState("tree");
   //handling errors in the UI, and/or displaying errors in the UI?
   const [error, setError] = useState(null);
 

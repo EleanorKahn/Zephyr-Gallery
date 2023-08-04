@@ -10,14 +10,14 @@ exports.handler = async function (event, context) {
     const {term} = event.queryStringParameters;
     console.log(term);
 
-   //const URL = `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${term}&image_type=photo&pretty=true`;
+   
    //
 
    try {
     const { term } = event.queryStringParameters;
       console.log(term);
-
-      const response = await fetch('http://localhost:3000/hits');
+      const URL = `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=${term}&image_type=photo&pretty=true`;
+      const response = await fetch(URL);
 
       //shape of the data!! 
       const data = await response.json();
