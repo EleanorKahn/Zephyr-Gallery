@@ -5,7 +5,7 @@ import ImageSearch from './components/ImageSearch';
 function App() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [term, setTerm] = useState("tree");
+  const [term, setTerm] = useState("rose");
   //handling errors in the UI, and/or displaying errors in the UI?
   const [error, setError] = useState(null);
 
@@ -17,10 +17,11 @@ function App() {
       try {
         setIsLoading(true);
         const response = await fetch(URL);
-        const data = response.hits;
+        const data = await response.json();
+        setImages(data.hits);
         setIsLoading(false);
-        setImages(data);
         console.log(data);
+        console.log(images);
       } catch (err) {
         console.log(err);
         setError(`An error occured while fetching the data: ${err}`);
