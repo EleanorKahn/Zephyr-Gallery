@@ -1,3 +1,8 @@
+# Welcome to Zephyr Gallery
+
+## Purpose 
+To build and deploy a simple image search gallery site. 
+
 ## Goals
 - utilize lambda functions to securely hide api keys
 - explore tailwindcss 
