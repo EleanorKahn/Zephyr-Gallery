@@ -9,7 +9,6 @@ function App() {
   //handling errors in the UI, and/or displaying errors in the UI?
   const [error, setError] = useState(null);
 
-
  // get it to hit a small local server that I build 
   useEffect(() => {
     async function fetchPixa() {
@@ -31,12 +30,6 @@ function App() {
     }
     fetchPixa();
   }, [term]);
-
- 
-
- 
-
-  
 
   if (error) {
     return <div>Error: {error}</div>
