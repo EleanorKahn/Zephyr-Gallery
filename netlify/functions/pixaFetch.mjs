@@ -18,7 +18,6 @@ exports.handler = async function (event, context) {
           body: JSON.stringify(data)
         }
 
-      //both the below are being logged as 'undefined'
       console.log(data);
       console.log(images);
       return images;
