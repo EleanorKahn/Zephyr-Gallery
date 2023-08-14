@@ -5,7 +5,7 @@ import ImageSearch from './components/ImageSearch';
 function App() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [term, setTerm] = useState("rose");
+  const [term, setTerm] = useState("dog");
   //handling errors in the UI, and/or displaying errors in the UI?
   const [error, setError] = useState(null);
 
@@ -47,7 +47,6 @@ function App() {
             {images?.map((image) => {
               return <ImageCard key={image.id} image={image} />
             })}
-            {console.log(images)}
           </div>
       }
     </div>
