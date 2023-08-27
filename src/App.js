@@ -5,7 +5,11 @@ import ImageSearch from './components/ImageSearch';
 function App() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [term, setTerm] = useState("dog");
+  //think of first onload use case
+  //save yourself an api call
+  //have it only call the api when the search button is pressed 
+  //could check if current term = previous term
+  const [term, setTerm] = useState("");
   //handling errors in the UI, and/or displaying errors in the UI?
   const [error, setError] = useState(null);
 
@@ -19,8 +23,6 @@ function App() {
         const data = await response.json();
         setImages(data.hits);
         setIsLoading(false);
-        console.log(data);
-        console.log(images);
       } catch (err) {
         console.log(err);
         setError(`An error occured while fetching the data: ${err}`);
@@ -54,3 +56,5 @@ function App() {
 }
 
 export default App;
+
+//why one uses 3rd party state management - avoiding rerenders! (one of the reasons - predictable state management)
