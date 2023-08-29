@@ -29,7 +29,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 
 ## Acknowledgements 
-Many thanks to Nick for his help troubleshooting serverless functions. 
+Many thanks to Nick for his help troubleshooting serverless functions, and UI suggestions. 
 
 ### Notes
 This was originally a Brad Traversy project that I screenshot and recreated from my images. I ended up being pretty close, and the only things I ended up having to correct were some of the text size and some of the padding/margins.
